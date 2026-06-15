@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Profesional | Siswa SMK RPL</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons for Ultra-Clean Design -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Tailwind Configurations -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        navy: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                            950: '#020617',
+                        }
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.95)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Smooth Custom Transitions */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Custom Glassmorphism styles */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .light .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(15, 23, 42, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-navy-950 text-slate-100 font-sans transition-colors duration-300 dark:bg-navy-950 dark:text-slate-100 light:bg-slate-50 light:text-slate-800">
+
+    <!-- Background Tech Glows -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <div class="absolute top-[10%] left-[5%] w-72 h-72 bg-blue-600/10 rounded-full blur-[120px] dark:bg-blue-600/10 light:bg-blue-200/40 animate-blob"></div>
+        <div class="absolute bottom-[20%] right-[10%] w-96 h-96 bg-indigo-600/10 rounded-full blur-[150px] dark:bg-indigo-600/10 light:bg-indigo-200/30 animate-blob [animation-delay:2s]"></div>
+        <div class="absolute top-[50%] left-[40%] w-80 h-80 bg-cyan-500/10 rounded-full blur-[130px] dark:bg-cyan-500/10 light:bg-cyan-200/30 animate-blob [animation-delay:4s]"></div>
+    </div>
+
+    <!-- Sticky Navigation Bar -->
+    <header class="sticky top-0 z-50 w-full border-b border-slate-800/50 bg-navy-950/80 backdrop-blur-md dark:border-slate-800/50 dark:bg-navy-950/80 light:border-slate-200/50 light:bg-white/80 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-2">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-blue-600 to-cyan-400 flex items-center justify-center font-bold text-white shadow-lg shadow-blue-500/30">
+                    T
+                </div>
+                <span class="font-mono font-bold text-lg tracking-wider bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent dark:from-blue-400 dark:to-cyan-400 light:from-blue-600 light:to-cyan-600">
+                    PPLG
+                </span>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#profil" class="text-sm font-medium text-slate-300 hover:text-blue-400 transition-colors dark:text-slate-300 dark:hover:text-blue-400 light:text-slate-600 light:hover:text-blue-600">Profil</a>
+                <a href="#prestasi" class="text-sm font-medium text-slate-300 hover:text-blue-400 transition-colors dark:text-slate-300 dark:hover:text-blue-400 light:text-slate-600 light:hover:text-blue-600">Prestasi</a>
+                <a href="#mapel" class="text-sm font-medium text-slate-300 hover:text-blue-400 transition-colors dark:text-slate-300 dark:hover:text-blue-400 light:text-slate-600 light:hover:text-blue-600">Mata Pelajaran</a>
+                <a href="#keterampilan" class="text-sm font-medium text-slate-300 hover:text-blue-400 transition-colors dark:text-slate-300 dark:hover:text-blue-400 light:text-slate-600 light:hover:text-blue-600">Keterampilan</a>
+                <a href="#karya" class="text-sm font-medium text-slate-300 hover:text-blue-400 transition-colors dark:text-slate-300 dark:hover:text-blue-400 light:text-slate-600 light:hover:text-blue-600">Hasil Karya</a>
+                <a href="#refleksi" class="text-sm font-medium text-slate-300 hover:text-blue-400 transition-colors dark:text-slate-300 dark:hover:text-blue-400 light:text-slate-600 light:hover:text-blue-600">Refleksi</a>
+            </nav>
+
+            <div class="flex items-center space-x-4">
+                <!-- Dark Mode Toggle Button -->
+                <button id="themeToggle" class="p-2 rounded-lg hover:bg-slate-800/50 light:hover:bg-slate-100 transition-colors duration-200" aria-label="Toggle Theme">
+                    <i data-lucide="sun" id="sunIcon" class="hidden w-5 h-5 text-amber-400"></i>
+                    <i data-lucide="moon" id="moonIcon" class="w-5 h-5 text-slate-400 dark:text-slate-400 light:text-slate-600"></i>
+                </button>
+                <a href="#kontak" class="hidden sm:inline-flex items-center justify-center px-4 py-2 text-xs font-semibold tracking-wider uppercase text-white bg-blue-600 hover:bg-blue-500 rounded-lg transition-all duration-300 shadow-md shadow-blue-500/20">
+                    Hubungi Saya
+                </a>
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg hover:bg-slate-800/50 dark:hover:bg-slate-800/50 light:hover:bg-slate-100 transition-colors">
+                    <i data-lucide="menu" class="w-6 h-6 text-slate-300 dark:text-slate-300 light:text-slate-600"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobileMenu" class="hidden md:hidden border-t border-slate-800 dark:border-slate-800 light:border-slate-200 bg-navy-950/95 dark:bg-navy-950/95 light:bg-white/95 backdrop-blur-md px-4 py-4 space-y-3 shadow-lg">
+            <a href="#profil" class="block text-sm font-medium text-slate-300 dark:text-slate-300 light:text-slate-600 py-1 hover:text-blue-400">Profil</a>
+            <a href="#prestasi" class="block text-sm font-medium text-slate-300 dark:text-slate-300 light:text-slate-600 py-1 hover:text-blue-400">Prestasi</a>
+            <a href="#mapel" class="block text-sm font-medium text-slate-300 dark:text-slate-300 light:text-slate-600 py-1 hover:text-blue-400">Mata Pelajaran</a>
+            <a href="#keterampilan" class="block text-sm font-medium text-slate-300 dark:text-slate-300 light:text-slate-600 py-1 hover:text-blue-400">Keterampilan</a>
+            <a href="#karya" class="block text-sm font-medium text-slate-300 dark:text-slate-300 light:text-slate-600 py-1 hover:text-blue-400">Hasil Karya</a>
+            <a href="#refleksi" class="block text-sm font-medium text-slate-300 dark:text-slate-300 light:text-slate-600 py-1 hover:text-blue-400">Refleksi</a>
+            <a href="#kontak" class="block w-full text-center px-4 py-2.5 text-xs font-semibold tracking-wider uppercase text-white bg-blue-600 rounded-lg">Hubungi Saya</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-[calc(100vh-4rem)] flex items-center justify-center py-16 px-4 overflow-hidden">
+        <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+            
+            <!-- Left Bio Info (Col 7) -->
+            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                <!-- Status Badge -->
+                <div class="inline-flex items-center space-x-2 bg-blue-500/10 text-blue-400 px-3.5 py-1.5 rounded-full border border-blue-500/20 text-xs sm:text-sm font-semibold tracking-wide dark:bg-blue-500/10 light:bg-blue-50/70 light:text-blue-600 light:border-blue-200">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse-slow"></span>
+                    <span>Siswa SMK RPL & Web Developer</span>
+                </div>
+                
+                <!-- Main Title / Headline -->
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                    Halo, Saya <br class="hidden sm:inline" />
+                    <span class="bg-gradient-to-r from-blue-400 via-indigo-400 to-cyan-400 bg-clip-text text-transparent dark:from-blue-400 dark:to-cyan-400 light:from-blue-600 light:to-indigo-600 font-mono">
+                        Tora Raffi Helmy.A
+                    </span>
+                </h1>
+                
+                <!-- Short Bio -->
+                <p class="text-slate-300 dark:text-slate-300 light:text-slate-600 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed font-normal">
+                    Seorang antusias teknologi yang fokus pada pengembangan aplikasi web adaptif dan interaktif. Berkomitmen tinggi untuk menulis baris kode yang bersih, efisien, serta siap memecahkan masalah industri yang nyata.
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                    <a href="#karya" class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3.5 text-sm font-semibold rounded-xl text-white bg-blue-600 hover:bg-blue-500 transition-all duration-300 shadow-lg shadow-blue-500/30 transform hover:-translate-y-0.5">
+                        Lihat Portofolio
+                        <i data-lucide="arrow-up-right" class="w-4 h-4 ml-2"></i>
+                    </a>
+                    <a href="#kontak" class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3.5 text-sm font-semibold rounded-xl text-slate-300 dark:text-slate-300 light:text-slate-700 bg-slate-800/40 dark:bg-slate-800/40 light:bg-slate-200/60 hover:bg-slate-800 dark:hover:bg-slate-800 light:hover:bg-slate-200 border border-slate-700/50 dark:border-slate-700/50 light:border-slate-300 transition-all duration-300 transform hover:-translate-y-0.5">
+                        Hubungi Saya
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Profile Card Showcase (Col 5) -->
+            <div class="lg:col-span-5 flex justify-center items-center">
+                <div class="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
+                    <!-- Tech Outer Ring -->
+                    <div class="absolute inset-0 rounded-full border border-dashed border-blue-500/30 animate-[spin_40s_linear_infinite]"></div>
+                    <!-- Glow behind profile -->
+                    <div class="absolute -inset-1.5 bg-gradient-to-tr from-blue-600 to-cyan-400 rounded-full blur-xl opacity-40"></div>
+                    <!-- Frame -->
+                    <div class="absolute inset-4 rounded-full bg-slate-900 dark:bg-slate-900 light:bg-slate-100 overflow-hidden border-4 border-slate-800 dark:border-slate-800 light:border-white shadow-2xl flex items-center justify-center">
+                        <!-- Custom illustration or dynamic placeholder representing developer -->
+                        <img id="avatarImage" src="gamabr/20250528_122741.jpg" onerror="this.src='https://placehold.co/400x400/0f172a/3b82f6?text=MR'" alt="Foto Profil Muhammad Rafli" class="object-cover w-full h-full transform hover:scale-105 transition duration-500" />
+                    </div>
+                    <!-- Floating Tech Badges -->
+                    <div class="absolute top-[10%] -left-4 p-3 bg-navy-900/90 dark:bg-navy-900/90 light:bg-white rounded-xl shadow-lg border border-slate-700/50 dark:border-slate-700/50 light:border-slate-200 flex items-center space-x-2 animate-bounce">
+                        <i data-lucide="code-2" class="w-5 h-5 text-blue-400"></i>
+                        <span class="text-xs font-mono font-bold">RPL</span>
+                    </div>
+                    <div class="absolute bottom-[15%] -right-4 p-3 bg-navy-900/90 dark:bg-navy-900/90 light:bg-white rounded-xl shadow-lg border border-slate-700/50 dark:border-slate-700/50 light:border-slate-200 flex items-center space-x-2 animate-bounce [animation-delay:1.5s]">
+                        <i data-lucide="terminal" class="w-5 h-5 text-cyan-400"></i>
+                        <span class="text-xs font-mono font-bold">WebDev</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Profil Diri Section -->
+    <section id="profil" class="py-24 px-4 bg-navy-900/40 dark:bg-navy-900/40 light:bg-slate-100/40 relative z-10">
+        <div class="max-w-7xl mx-auto">
+            <!-- Section Header -->
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <p class="text-xs font-bold uppercase tracking-widest text-blue-500 mb-2">Tentang</p>
+                <h2 class="text-3xl sm:text-4xl font-bold">Profil Diri Lengkap</h2>
+                <div class="h-1 w-12 bg-blue-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                <!-- Main Personal Bio Card -->
+                <div class="lg:col-span-5 glass-card p-8 rounded-3xl flex flex-col justify-between shadow-sm reveal">
+                    <div>
+                        <div class="flex items-center space-x-4 mb-6">
+                            <div class="w-12 h-12 bg-blue-500/10 text-blue-400 rounded-2xl flex items-center justify-center">
+                                <i data-lucide="user-check" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold">Identitas Pokok</h3>
+                                <p class="text-xs text-slate-400 dark:text-slate-400 light:text-slate-500">Siswa Produktif</p>
+                            </div>
+                        </div>
+                        <p class="text-slate-300 dark:text-slate-300 light:text-slate-600 leading-relaxed text-sm sm:text-base mb-6">
+                            Bersekolah di salah satu SMK berprestasi, saya berdedikasi melatih keahlian teknis setiap hari. Bagi saya, pemrograman bukan sekadar menulis script, melainkan seni menciptakan solusi inovatif yang memudahkan keseharian manusia.
+                        </p>
+                    </div>
+                    <!-- Elegant Quote/Badge --
+                    <div class="p-4 bg-slate-800/20 dark:bg-slate-800/20 light:bg-slate-200/50 rounded-2xl border border-slate-700/30 dark:border-slate-700/30 light:border-slate-200">
+                        <span class="font-mono text-xs text-blue-400 dark:text-blue-400 light:text-blue-600 block mb-1">Motto Hidup:</span>
+                        <p class="italic text-sm text-slate-300 dark:text-slate-300 light:text-slate-700">"Learn continuously, build with passion, adapt rapidly."</p>
+                    </div>-->
+                </div>
+
+                <!-- Info Cards Grid (Col 7) -->
+                <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6 reveal [transition-delay:0.2s]">
+                    
+                    <!-- School Card -->
+                    <div class="glass-card p-6 rounded-2xl hover:border-blue-500/40 transition-all duration-300 flex flex-col justify-between shadow-sm">
+                        <div class="w-10 h-10 bg-blue-500/10 text-blue-400 rounded-xl flex items-center justify-center mb-4">
+                            <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs text-slate-400 dark:text-slate-400 light:text-slate-500 uppercase tracking-wider font-mono">Sekolah</span>
+                            <h4 class="text-base sm:text-lg font-bold text-slate-100 dark:text-slate-100 light:text-slate-800 mt-1">SMK Negeri 1 Banyuwangi</h4>
+                            <p class="text-xs text-slate-400 mt-0.5">Jurusan Rekayasa Perangkat Lunak</p>
+                        </div>
+                    </div>
+
+                    <!-- Major/Jurusan Card -->
+                    <div class="glass-card p-6 rounded-2xl hover:border-blue-500/40 transition-all duration-300 flex flex-col justify-between shadow-sm">
+                        <div class="w-10 h-10 bg-blue-500/10 text-blue-400 rounded-xl flex items-center justify-center mb-4">
+                            <i data-lucide="binary" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs text-slate-400 dark:text-slate-400 light:text-slate-500 uppercase tracking-wider font-mono">Jurusan</span>
+                            <h4 class="text-base sm:text-lg font-bold text-slate-100 dark:text-slate-100 light:text-slate-800 mt-1">Software Engineering</h4>
+                            <p class="text-xs text-slate-400 mt-0.5">Fokus: Web & Mobile Development</p>
+                        </div>
+                    </div>
+
+                    <!-- Hobby Card -->
+                    <div class="glass-card p-6 rounded-2xl hover:border-blue-500/40 transition-all duration-300 flex flex-col justify-between shadow-sm">
+                        <div class="w-10 h-10 bg-blue-500/10 text-blue-400 rounded-xl flex items-center justify-center mb-4">
+                            <i data-lucide="gamepad-2" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs text-slate-400 dark:text-slate-400 light:text-slate-500 uppercase tracking-wider font-mono">Hobi</span>
+                            <h4 class="text-base sm:text-lg font-bold text-slate-100 dark:text-slate-100 light:text-slate-800 mt-1">Exploring Open Source</h4>
+                            <p class="text-xs text-slate-400 mt-0.5">Coding, Competitive Gaming & Tech Blogs</p>
+                        </div>
+                    </div>
+
+                    <!-- Goal/Cita-cita Card -->
+                    <div class="glass-card p-6 rounded-2xl hover:border-blue-500/40 transition-all duration-300 flex flex-col justify-between shadow-sm">
+                        <div class="w-10 h-10 bg-blue-500/10 text-blue-400 rounded-xl flex items-center justify-center mb-4">
+                            <i data-lucide="rocket" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs text-slate-400 dark:text-slate-400 light:text-slate-500 uppercase tracking-wider font-mono">Cita-Cita</span>
+                            <h4 class="text-base sm:text-lg font-bold text-slate-100 dark:text-slate-100 light:text-slate-800 mt-1">Full Stack Developer</h4>
+                            <p class="text-xs text-slate-400 mt-0.5">Membantu proses digitalisasi global</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mata Pelajaran yang Dikuasai Section -->
+    <section id="mapel" class="py-24 px-4 relative z-10">
+        <div class="max-w-7xl mx-auto">
+            <!-- Section Header -->
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <p class="text-xs font-bold uppercase tracking-widest text-blue-500 mb-2">Kurikulum & Akademik</p>
+                <h2 class="text-3xl sm:text-4xl font-bold">Mata Pelajaran yang Dikuasai</h2>
+                <div class="h-1 w-12 bg-blue-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Subject Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Card 1: Informatika -->
+                <div class="glass-card p-6 rounded-2xl flex flex-col justify-between group hover:border-blue-500/40 transition-all duration-300 hover:-translate-y-1 shadow-sm reveal">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 bg-blue-500/10 text-blue-400 rounded-xl flex items-center justify-center">
+                                    <i data-lucide="cpu" class="w-5 h-5"></i>
+                                </div>
+                                <h3 class="font-bold text-slate-100 dark:text-slate-100 light:text-slate-800">Informatika</h3>
+                            </div>
+                            <span class="text-xs font-mono font-bold text-blue-400">92%</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-400 dark:text-slate-400 light:text-slate-500 leading-relaxed mb-6">
+                            Memahami fondasi berpikir komputasional, analisis data terstruktur, jaringan komputer dasar, serta pemanfaatan teknologi informasi untuk pemecahan masalah.
+                        </p>
+                    </div>
+                    <div class="w-full bg-slate-800/80 dark:bg-slate-800/80 light:bg-slate-200 h-2 rounded-full overflow-hidden">
+                        <div class="bg-gradient-to-r from-blue-500 to-cyan-400 h-full w-[92%] rounded-full"></div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Pemrograman Dasar -->
+                <div class="glass-card p-6 rounded-2xl flex flex-col justify-between group hover:border-blue-500/40 transition-all duration-300 hover:-translate-y-1 shadow-sm reveal [transition-delay:0.05s]">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 bg-emerald-500/10 text-emerald-400 rounded-xl flex items-center justify-center">
+                                    <i data-lucide="code" class="w-5 h-5"></i>
+                                </div>
+                                <h3 class="font-bold text-slate-100 dark:text-slate-100 light:text-slate-800">Pemrograman Dasar</h3>
+                            </div>
+                            <span class="text-xs font-mono font-bold text-blue-400">95%</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-400 dark:text-slate-400 light:text-slate-500 leading-relaxed mb-6">
+                            Menguasai alur logika algoritma tingkat lanjut, struktur kontrol keputusan, manipulasi array/objek, pemrograman prosedural, serta dasar pemrograman berorientasi objek (OOP).
+                        </p>
+                    </div>
+                    <div class="w-full bg-slate-800/80 dark:bg-slate-800/80 light:bg-slate-200 h-2 rounded-full overflow-hidden">
+                        <div class="bg-gradient-to-r from-emerald-500 to-teal-400 h-full w-[95%] rounded-full"></div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Basis Data --
+                <div class="glass-card p-6 rounded-2xl flex flex-col justify-between group hover:border-blue-500/40 transition-all duration-300 hover:-translate-y-1 shadow-sm reveal [transition-delay:0.1s]">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 bg-indigo-500/10 text-indigo-400 rounded-xl flex items-center justify-center">
+                                    <i data-lucide="database" class="w-5 h-5"></i>
+                                </div>
+                                <h3 class="font-bold text-slate-100 dark:text-slate-100 light:text-slate-800">Basis Data</h3>
+                            </div>
+                            <span class="text-xs font-mono font-bold text-blue-400">88%</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-400 dark:text-slate-400 light:text-slate-500 leading-relaxed mb-6">
+                            Mampu merancang diagram ERD, melakukan normalisasi database (1NF hingga 3NF), serta menyusun query relasional kompleks (JOIN, Subquery, Grouping) pada MySQL.
+                        </p>
+                    </div>
+                    <div class="w-full bg-slate-800/80 dark:bg-slate-800/80 light:bg-slate-200 h-2 rounded-full overflow-hidden">
+                        <div class="bg-gradient-to-r from-indigo-500 to-purple-500 h-full w-[88%] rounded-full"></div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Matematika --
+                <div class="glass-card p-6 rounded-2xl flex flex-col justify-between group hover:border-blue-500/40 transition-all duration-300 hover:-translate-y-1 shadow-sm reveal [transition-delay:0.15s]">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 bg-amber-500/10 text-amber-500 rounded-xl flex items-center justify-center">
+                                    <i data-lucide="binary" class="w-5 h-5"></i>
+                                </div>
+                                <h3 class="font-bold text-slate-100 dark:text-slate-100 light:text-slate-800">Matematika</h3>
+                            </div>
+                            <span class="text-xs font-mono font-bold text-blue-400">85%</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-400 dark:text-slate-400 light:text-slate-500 leading-relaxed mb-6">
+                            Penerapan logika matematika, sistem aljabar linear, dan pengenalan statistika terapan untuk mengoptimalkan efisiensi algoritma serta penanganan struktur data.
+                        </p>
+                    </div>
+                    <div class="w-full bg-slate-800/80 dark:bg-slate-800/80 light:bg-slate-200 h-2 rounded-full overflow-hidden">
+                        <div class="bg-gradient-to-r from-amber-500 to-orange-500 h-full w-[85%] rounded-full"></div>
+                    </div>
+                </div>-->
+
+                <!-- Card 5: Bahasa Inggris --
+                <div class="glass-card p-6 rounded-2xl flex flex-col justify-between group hover:border-blue-500/40 transition-all duration-300 hover:-translate-y-1 shadow-sm reveal [transition-delay:0.2s]">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 bg-cyan-500/10 text-cyan-400 rounded-xl flex items-center justify-center">
+                                    <i data-lucide="globe" class="w-5 h-5"></i>
+                                </div>
+                                <h3 class="font-bold text-slate-100 dark:text-slate-100 light:text-slate-800">Bahasa Inggris</h3>
+                            </div>
+                            <span class="text-xs font-mono font-bold text-blue-400">90%</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-400 dark:text-slate-400 light:text-slate-500 leading-relaxed mb-6">
+                            Kemampuan membaca dokumentasi teknis (API), menulis commit message terstruktur, menyusun dokumentasi kode, serta berkomunikasi secara profesional.
+                        </p>
+                    </div>
+                    <div class="w-full bg-slate-800/80 dark:bg-slate-800/80 light:bg-slate-200 h-2 rounded-full overflow-hidden">
+                        <div class="bg-gradient-to-r from-cyan-400 to-blue-500 h-full w-[90%] rounded-full"></div>
+                    </div>
+                </div>-->
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Keterampilan Section -->
+    <section id="keterampilan" class="py-24 px-4 bg-navy-900/40 dark:bg-navy-900/40 light:bg-slate-100/40 relative z-10">
+        <div class="max-w-7xl mx-auto">
+            <!-- Section Header -->
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <p class="text-xs font-bold uppercase tracking-widest text-blue-500 mb-2">Keahlian</p>
+                <h2 class="text-3xl sm:text-4xl font-bold">Keterampilan Teknis</h2>
+                <div class="h-1 w-12 bg-blue-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Tech Cards Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Skill HTML -->
+                <div class="glass-card p-6 rounded-2xl flex flex-col justify-between group hover:border-blue-500/40 transition-all duration-300 hover:-translate-y-1 shadow-sm reveal">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <!-- Tech Title with Icon Mock -->
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 bg-[#FF5733]/10 text-[#FF5733] rounded-xl flex items-center justify-center font-bold">
+                                    <span class="text-xs">HTML</span>
+                                </div>
+                                <h3 class="font-bold text-slate-100 dark:text-slate-100 light:text-slate-800">HTML5</h3>
+                            </div>
+                            <span class="text-xs font-mono font-bold text-blue-400">95%</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-400 dark:text-slate-400 light:text-slate-500 leading-relaxed mb-6">
+                            Penataan kerangka web semantik untuk performa SEO dan struktur konten yang teroptimasi.
+                        </p>
+                    </div>
+                    <!-- Custom progress bar container -->
+                    <div class="w-full bg-slate-800/80 dark:bg-slate-800/80 light:bg-slate-200 h-2 rounded-full overflow-hidden">
+                        <div class="bg-gradient-to-r from-orange-500 to-red-500 h-full w-[95%] rounded-full"></div>
+                    </div>
+                </div>
+
+                <!-- Skill CSS -->
+                <div class="glass-card p-6 rounded-2xl flex flex-col justify-between group hover:border-blue-500/40 transition-all duration-300 hover:-translate-y-1 shadow-sm reveal [transition-delay:0.05s]">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 bg-[#264DE4]/10 text-[#264DE4] rounded-xl flex items-center justify-center font-bold">
+                                    <span class="text-xs">CSS</span>
+                                </div>
+                                <h3 class="font-bold text-slate-100 dark:text-slate-100 light:text-slate-800">CSS3 & Tailwind</h3>
+                            </div>
+                            <span class="text-xs font-mono font-bold text-blue-400">90%</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-400 dark:text-slate-400 light:text-slate-500 leading-relaxed mb-6">
+                            Implementasi UI modern responsif, flexbox/grid, layout interaktif dengan framework Tailwind CSS.
+                        </p>
+                    </div>
+                    <div class="w-full bg-slate-800/80 dark:bg-slate-800/80 light:bg-slate-200 h-2 rounded-full overflow-hidden">
+                        <div class="bg-gradient-to-r from-blue-500 to-cyan-400 h-full w-[90%] rounded-full"></div>
+                    </div>
+                </div>
+
+                <!-- Skill JavaScript -->
+                <div class="glass-card p-6 rounded-2xl flex flex-col justify-between group hover:border-blue-500/40 transition-all duration-300 hover:-translate-y-1 shadow-sm reveal [transition-delay:0.1s]">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 bg-[#F7DF1E]/10 text-[#F7DF1E] rounded-xl flex items-center justify-center font-bold">
+                                    <span class="text-xs text-[#EAB308]">JS</span>
+                                </div>
+                                <h3 class="font-bold text-slate-100 dark:text-slate-100 light:text-slate-800">JavaScript</h3>
+                            </div>
+                            <span class="text-xs font-mono font-bold text-blue-400">50%</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-400 dark:text-slate-400 light:text-slate-500 leading-relaxed mb-6">
+                            Manipulasi DOM, API Integration, logika asinkronus (ES6+), penanganan array serta state manipulasi data.
+                        </p>
+                    </div>
+                    <div class="w-full bg-slate-800/80 dark:bg-slate-800/80 light:bg-slate-200 h-2 rounded-full overflow-hidden">
+                        <div class="bg-gradient-to-r from-yellow-400 to-amber-500 h-full w-[50%] rounded-full"></div>
+                    </div>
+                </div>
+
+                <!-- Skill PHP -->
+                <div class="glass-card p-6 rounded-2xl flex flex-col justify-between group hover:border-blue-500/40 transition-all duration-300 hover:-translate-y-1 shadow-sm reveal [transition-delay:0.15s]">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 bg-[#777BB4]/10 text-[#777BB4] rounded-xl flex items-center justify-center font-bold">
+                                    <span class="text-xs">PHP</span>
+                                </div>
+                                <h3 class="font-bold text-slate-100 dark:text-slate-100 light:text-slate-800">PHP Native & Laravel</h3>
+                            </div>
+                            <span class="text-xs font-mono font-bold text-blue-400">10%</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-400 dark:text-slate-400 light:text-slate-500 leading-relaxed mb-6">
+                            Pengembangan backend, pengolahan form request, logika sistem dasar, serta arsitektur MVC sederhana.
+                        </p>
+                    </div>
+                    <div class="w-full bg-slate-800/80 dark:bg-slate-800/80 light:bg-slate-200 h-2 rounded-full overflow-hidden">
+                        <div class="bg-gradient-to-r from-indigo-500 to-indigo-400 h-full w-[10%] rounded-full"></div>
+                    </div>
+                </div>
+
+                <!-- Skill MySQL --
+                <div class="glass-card p-6 rounded-2xl flex flex-col justify-between group hover:border-blue-500/40 transition-all duration-300 hover:-translate-y-1 shadow-sm reveal [transition-delay:0.2s]">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 bg-[#00758F]/10 text-[#00758F] rounded-xl flex items-center justify-center font-bold">
+                                    <span class="text-xs">SQL</span>
+                                </div>
+                                <h3 class="font-bold text-slate-100 dark:text-slate-100 light:text-slate-800">MySQL Database</h3>
+                            </div>
+                            <span class="text-xs font-mono font-bold text-blue-400">80%</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-400 dark:text-slate-400 light:text-slate-500 leading-relaxed mb-6">
+                            Kueri relasional (Join), optimasi struktur tabel, data migrations, manajemen foreign-key & keamanan.
+                        </p>
+                    </div>
+                    <div class="w-full bg-slate-800/80 dark:bg-slate-800/80 light:bg-slate-200 h-2 rounded-full overflow-hidden">
+                        <div class="bg-gradient-to-r from-cyan-500 to-teal-400 h-full w-[80%] rounded-full"></div>
+                    </div>
+                </div>
+
+                <!-- Skill Git -->
+                <div class="glass-card p-6 rounded-2xl flex flex-col justify-between group hover:border-blue-500/40 transition-all duration-300 hover:-translate-y-1 shadow-sm reveal [transition-delay:0.25s]">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 bg-[#F05032]/10 text-[#F05032] rounded-xl flex items-center justify-center font-bold">
+                                    <span class="text-xs">GIT</span>
+                                </div>
+                                <h3 class="font-bold text-slate-100 dark:text-slate-100 light:text-slate-800">Git & GitHub</h3>
+                            </div>
+                            <span class="text-xs font-mono font-bold text-blue-400">75%</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-400 dark:text-slate-400 light:text-slate-500 leading-relaxed mb-6">
+                            Manajemen versi kode kolaboratif, branching, merging, pull-request, dan hosting deployment online.
+                        </p>
+                    </div>
+                    <div class="w-full bg-slate-800/80 dark:bg-slate-800/80 light:bg-slate-200 h-2 rounded-full overflow-hidden">
+                        <div class="bg-gradient-to-r from-orange-600 to-rose-500 h-full w-[75%] rounded-full"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Hasil Karya Section -->
+    <section id="karya" class="py-24 px-4 relative z-10">
+        <div class="max-w-7xl mx-auto">
+            <!-- Section Header -->
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <p class="text-xs font-bold uppercase tracking-widest text-blue-500 mb-2">Portfolio</p>
+                <h2 class="text-3xl sm:text-4xl font-bold">Hasil Karya Terbaik</h2>
+                <div class="h-1 w-12 bg-blue-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Project 1 Card -->
+                <div class="glass-card rounded-2xl overflow-hidden group hover:border-blue-500/30 transition-all duration-300 shadow-lg flex flex-col reveal">
+                    <!-- Fake Project Screen Preview (No outer URLs) -->
+                    <div class="relative bg-gradient-to-br from-indigo-900 to-blue-950 p-6 flex items-center justify-center h-48 sm:h-56 overflow-hidden">
+                        <!-- Custom Mock SVG UI -->
+                        <div class="relative bg-gradient-to-br from-indigo-900 to-blue-950 p-4 h-56 overflow-hidden">
+                            <img
+                            src="gamabr/PerpusSMK - Asisten Perpustakaan Modern - Google Chrome 14_06_2026 12_41_29.png"
+                           alt="E-Perpustakaan"
+                           class="w-full h-full object-cover rounded-xl shadow-2xl border border-slate-700/50 group-hover:scale-105 transition duration-500">
+                        </div>
+                    </div>
+                    <!-- Details content -->
+                    <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs text-blue-400 font-mono tracking-wider font-semibold">Web Application</span>
+                            <h3 class="text-xl font-bold text-slate-100 dark:text-slate-100 light:text-slate-800 mt-1">Perpustakaan Digital SMK</h3>
+                            <p class="text-sm text-slate-300 dark:text-slate-300 light:text-slate-600 mt-2.5 leading-relaxed">
+                                Sistem manajemen peminjaman buku sekolah .
+                            </p>
+                            <!-- Tech Used Tags -->
+                            <div class="flex flex-wrap gap-2 mt-4">
+                                <span class="text-[10px] font-semibold tracking-wider bg-slate-800/80 dark:bg-slate-800/80 light:bg-slate-200 text-slate-300 dark:text-slate-300 light:text-slate-700 px-2.5 py-1 rounded">JavaScript ES6</span>                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4 mt-6 pt-6 border-t border-slate-800/60 dark:border-slate-800/60 light:border-slate-200">
+                            <button onclick="openProjectDetails(1)" class="text-sm font-semibold text-blue-400 hover:text-blue-300 inline-flex items-center">
+                                Live Demo <i data-lucide="external-link" class="w-4 h-4 ml-1.5"></i>
+                            </button>
+                            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-slate-400 hover:text-slate-300 inline-flex items-center">
+                                Source Code <i data-lucide="github" class="w-4 h-4 ml-1.5"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 Card -->
+                <div class="glass-card rounded-2xl overflow-hidden group hover:border-blue-500/30 transition-all duration-300 shadow-lg flex flex-col reveal [transition-delay:0.1s]">
+                    <div class="relative bg-gradient-to-br from-cyan-900 to-slate-950 p-6 flex items-center justify-center h-48 sm:h-56 overflow-hidden">
+                        <!-- Custom Mock SVG UI -->
+                    <div class="relative bg-gradient-to-br from-indigo-900 to-blue-950 p-4 h-56 overflow-hidden">
+                        <img
+                        src="gamabr/smk-perpustakan - File Explorer 14_06_2026 13_18_07.png"
+                        alt="E-Perpustakaan"
+                        class="w-full h-full object-cover rounded-xl shadow-2xl border border-slate-700/50 group-hover:scale-105 transition duration-500"                     >
+                    </div>
+                    </div>
+                    <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs text-blue-400 font-mono tracking-wider font-semibold">sistem</span>
+                            <h3 class="text-xl font-bold text-slate-100 dark:text-slate-100 light:text-slate-800 mt-1">Sistem bank</h3>
+                            <p class="text-sm text-slate-300 dark:text-slate-300 light:text-slate-600 mt-2.5 leading-relaxed">
+                                sistem yg hampir mirip seperti bank.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mt-4">
+                                <span class="text-[10px] font-semibold tracking-wider bg-slate-800/80 dark:bg-slate-800/80 light:bg-slate-200 text-slate-300 dark:text-slate-300 light:text-slate-700 px-2.5 py-1 rounded">C++</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4 mt-6 pt-6 border-t border-slate-800/60 dark:border-slate-800/60 light:border-slate-200">
+                            <button onclick="openProjectDetails(2)" class="text-sm font-semibold text-blue-400 hover:text-blue-300 inline-flex items-center">
+                                Live Demo <i data-lucide="external-link" class="w-4 h-4 ml-1.5"></i>
+                            </button>
+                            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-slate-400 hover:text-slate-300 inline-flex items-center">
+                                Source Code <i data-lucide="github" class="w-4 h-4 ml-1.5"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Refleksi Diri Section -->
+    <section id="refleksi" class="py-24 px-4 bg-navy-900/40 dark:bg-navy-900/40 light:bg-slate-100/40 relative z-10">
+        <div class="max-w-4xl mx-auto">
+            <!-- Section Header -->
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <p class="text-xs font-bold uppercase tracking-widest text-blue-500 mb-2">Evaluasi</p>
+                <h2 class="text-3xl sm:text-4xl font-bold">Refleksi Diri & Perjalanan</h2>
+                <div class="h-1 w-12 bg-blue-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="glass-card p-8 sm:p-10 rounded-3xl space-y-8 shadow-sm reveal">
+                <!-- Journey -->
+                <div class="space-y-3">
+                    <div class="flex items-center space-x-3 text-blue-400">
+                        <i data-lucide="compass" class="w-5 h-5"></i>
+                        <h3 class="text-lg sm:text-xl font-bold text-slate-100 dark:text-slate-100 light:text-slate-800">Perjalanan Belajar</h3>
+                    </div>
+                    <p class="text-sm sm:text-base text-slate-300 dark:text-slate-300 light:text-slate-600 leading-relaxed">
+                        Mengawali langkah dari ketidaktahuan total tentang baris tag HTML di awal kelas X, kini saya telah menguasai logika asinkronus pemrograman web modern. Belajar mandiri melalui dokumentasi resmi serta kursus online menjadi bahan bakar konsisten saya melampaui kurikulum sekolah.
+                    </p>
+                </div>
+
+                <!-- Challenges -->
+                <div class="space-y-3">
+                    <div class="flex items-center space-x-3 text-amber-400">
+                        <i data-lucide="zap-off" class="w-5 h-5"></i>
+                        <h3 class="text-lg sm:text-xl font-bold text-slate-100 dark:text-slate-100 light:text-slate-800">Tantangan yang Dihadapi</h3>
+                    </div>
+                    <p class="text-sm sm:text-base text-slate-300 dark:text-slate-300 light:text-slate-600 leading-relaxed">
+                        Debugging *asynchronous code error* dan mengelola basis data yang optimal sempat memicu kebingungan hebat. Mengatasi rasa putus asa tersebut mengajarkan saya untuk memecah masalah besar menjadi modul-modul kecil yang jauh lebih mudah dipecahkan.
+                    </p>
+                </div>
+
+                <!-- Lessons Learned -->
+                <div class="space-y-3">
+                    <div class="flex items-center space-x-3 text-emerald-400">
+                        <i data-lucide="lightbulb" class="w-5 h-5"></i>
+                        <h3 class="text-lg sm:text-xl font-bold text-slate-100 dark:text-slate-100 light:text-slate-800">Pelajaran Berharga</h3>
+                    </div>
+                    <p class="text-sm sm:text-base text-slate-300 dark:text-slate-300 light:text-slate-600 leading-relaxed">
+                        Saya belajar bahwa kode yang baik bukanlah yang paling kompleks, melainkan kode yang mudah dibaca oleh tim dan stabil saat dijalankan. Konsistensi kecil setiap hari jauh mengalahkan durasi coding tak beraturan.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Target 1 Tahun Ke Depan Section -->
+    <section class="py-24 px-4 relative z-10">
+        <div class="max-w-5xl mx-auto">
+            <!-- Section Header -->
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <p class="text-xs font-bold uppercase tracking-widest text-blue-500 mb-2">Roadmap</p>
+                <h2 class="text-3xl sm:text-4xl font-bold">Target 1 Tahun Ke Depan</h2>
+                <div class="h-1 w-12 bg-blue-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Roadmap horizontal steps layout on desktop, vertical on mobile -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
+                
+                <!-- Target Step 1 -->
+                <div class="glass-card p-6 rounded-2xl border-l-4 border-l-blue-500 shadow-md relative reveal">
+                    <span class="absolute -top-4 -right-4 w-10 h-10 bg-blue-600/10 text-blue-400 border border-blue-500/20 text-xs font-mono font-extrabold rounded-full flex items-center justify-center">Q1</span>
+                    <div class="w-8 h-8 bg-blue-500/10 text-blue-400 rounded-lg flex items-center justify-center mb-4">
+                        <i data-lucide="code" class="w-4 h-4"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-100 dark:text-slate-100 light:text-slate-800">Deep Javascript</h3>
+                    <p class="text-xs text-slate-400 dark:text-slate-400 light:text-slate-500 mt-2 leading-relaxed">
+                        Menguasai konsep lanjutan seperti closures, scope chain, event-loop, serta modulasi ES6 yang mendalam.
+                    </p>
+                </div>
+
+                <!-- Target Step 2 -->
+                <div class="glass-card p-6 rounded-2xl border-l-4 border-l-indigo-500 shadow-md relative reveal [transition-delay:0.1s]">
+                    <span class="absolute -top-4 -right-4 w-10 h-10 bg-indigo-600/10 text-indigo-400 border border-indigo-500/20 text-xs font-mono font-extrabold rounded-full flex items-center justify-center">Q2</span>
+                    <div class="w-8 h-8 bg-indigo-500/10 text-indigo-400 rounded-lg flex items-center justify-center mb-4">
+                        <i data-lucide="atom" class="w-4 h-4"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-100 dark:text-slate-100 light:text-slate-800">Kuasai React JS</h3>
+                    <p class="text-xs text-slate-400 dark:text-slate-400 light:text-slate-500 mt-2 leading-relaxed">
+                        Mempelajari pembuatan component-driven SPA, state management (Redux/Zustand), serta integrasi REST API.
+                    </p>
+                </div>
+
+                <!-- Target Step 3 -->
+                <div class="glass-card p-6 rounded-2xl border-l-4 border-l-cyan-400 shadow-md relative reveal [transition-delay:0.2s]">
+                    <span class="absolute -top-4 -right-4 w-10 h-10 bg-cyan-600/10 text-cyan-400 border border-cyan-500/20 text-xs font-mono font-extrabold rounded-full flex items-center justify-center">Q3</span>
+                    <div class="w-8 h-8 bg-cyan-500/10 text-cyan-400 rounded-lg flex items-center justify-center mb-4">
+                        <i data-lucide="briefcase" class="w-4 h-4"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-100 dark:text-slate-100 light:text-slate-800">Perbanyak Project</h3>
+                    <p class="text-xs text-slate-400 dark:text-slate-400 light:text-slate-500 mt-2 leading-relaxed">
+                        Membangun 3-5 real-world production projects, salah satunya bertipe SaaS atau kolaboratif open source.
+                    </p>
+                </div>
+
+                <!-- Target Step 4 -->
+                <div class="glass-card p-6 rounded-2xl border-l-4 border-l-emerald-500 shadow-md relative reveal [transition-delay:0.3s]">
+                    <span class="absolute -top-4 -right-4 w-10 h-10 bg-emerald-600/10 text-emerald-400 border border-emerald-500/20 text-xs font-mono font-extrabold rounded-full flex items-center justify-center">Q4</span>
+                    <div class="w-8 h-8 bg-emerald-500/10 text-emerald-400 rounded-lg flex items-center justify-center mb-4">
+                        <i data-lucide="swords" class="w-4 h-4"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-100 dark:text-slate-100 light:text-slate-800">Lomba Nasional IT</h3>
+                    <p class="text-xs text-slate-400 dark:text-slate-400 light:text-slate-500 mt-2 leading-relaxed">
+                        Berpartisipasi aktif dalam ajang Lomba Kompetensi Siswa (LKS) Web Technologies / kompetensi software tingkat nasional.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontak Section -->
+    <section id="kontak" class="py-24 px-4 bg-navy-900/40 dark:bg-navy-900/40 light:bg-slate-100/40 relative z-10">
+        <div class="max-w-4xl mx-auto">
+            <!-- Section Header -->
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <p class="text-xs font-bold uppercase tracking-widest text-blue-500 mb-2">Kontak</p>
+                <h2 class="text-3xl sm:text-4xl font-bold">Ayo Terhubung!</h2>
+                <div class="h-1 w-12 bg-blue-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+                
+                <!-- Contact Direct Info List (Col 5) -->
+                <div class="md:col-span-5 space-y-6 reveal">
+                    <h3 class="text-xl font-bold">Ada Penilaian Portofolio atau Peluang Kerja Sama?</h3>
+                    <p class="text-sm text-slate-300 dark:text-slate-300 light:text-slate-600 leading-relaxed">
+                        Saya sangat terbuka untuk berdiskusi terkait magang industri (PKL), peninjauan hasil karya, atau kolaborasi proyek pembangunan website.
+                    </p>
+
+                    <!-- Direct Contacts Link -->
+                    <div class="space-y-4 pt-4">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-10 h-10 bg-blue-500/10 text-blue-400 rounded-xl flex items-center justify-center">
+                                <i data-lucide="mail" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <span class="text-[10px] text-slate-400 uppercase tracking-wider block">Email Resmi</span>
+                                <a href="mailto:rafli@rpl.smk.id" class="text-sm font-semibold hover:text-blue-400 transition">toraffi@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-4">
+                            <div class="w-10 h-10 bg-blue-500/10 text-blue-400 rounded-xl flex items-center justify-center">
+                                <i data-lucide="phone" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <span class="text-[10px] text-slate-400 uppercase tracking-wider block">Telepon / WA</span>
+                                <span class="text-sm font-semibold">+62 813 9332 316</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-4">
+                            <div class="w-10 h-10 bg-blue-500/10 text-blue-400 rounded-xl flex items-center justify-center">
+                                <i data-lucide="map-pin" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <span class="text-[10px] text-slate-400 uppercase tracking-wider block">Domisili</span>
+                                <span class="text-sm font-semibold">Banyuwangi, Jawa Timur, Indonesia</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dynamic Contact Form (Col 7) -->
+                <div class="md:col-span-7 glass-card p-6 sm:p-8 rounded-3xl shadow-lg reveal [transition-delay:0.1s]">
+                    <form id="contactForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-xs font-semibold text-slate-400 mb-1.5 uppercase tracking-wider">Nama Lengkap</label>
+                            <input type="text" id="name" required class="w-full bg-slate-800/50 dark:bg-slate-800/50 light:bg-slate-50 border border-slate-700/50 dark:border-slate-700/50 light:border-slate-300 focus:border-blue-500 rounded-xl px-4 py-3 text-sm outline-none transition duration-200 text-slate-100 dark:text-slate-100 light:text-slate-800 focus:ring-2 focus:ring-blue-500/20" placeholder="Contoh: Budi Santoso" />
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-xs font-semibold text-slate-400 mb-1.5 uppercase tracking-wider">Alamat Email</label>
+                            <input type="email" id="email" required class="w-full bg-slate-800/50 dark:bg-slate-800/50 light:bg-slate-50 border border-slate-700/50 dark:border-slate-700/50 light:border-slate-300 focus:border-blue-500 rounded-xl px-4 py-3 text-sm outline-none transition duration-200 text-slate-100 dark:text-slate-100 light:text-slate-800 focus:ring-2 focus:ring-blue-500/20" placeholder="budi@email.com" />
+                        </div>
+
+                        <div>
+                            <label for="message" class="block text-xs font-semibold text-slate-400 mb-1.5 uppercase tracking-wider">Pesan Anda</label>
+                            <textarea id="message" rows="4" required class="w-full bg-slate-800/50 dark:bg-slate-800/50 light:bg-slate-50 border border-slate-700/50 dark:border-slate-700/50 light:border-slate-300 focus:border-blue-500 rounded-xl px-4 py-3 text-sm outline-none transition duration-200 text-slate-100 dark:text-slate-100 light:text-slate-800 focus:ring-2 focus:ring-blue-500/20 resize-none" placeholder="Tulis rincian pesan atau tawaran kerja sama di sini..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full inline-flex items-center justify-center px-6 py-3.5 text-sm font-semibold rounded-xl text-white bg-blue-600 hover:bg-blue-500 transition duration-300 shadow-md shadow-blue-500/20">
+                            Kirim Pesan <i data-lucide="send" class="w-4 h-4 ml-2"></i>
+                        </button>
+                    </form>
+                    
+                    <!-- Notification Banner inside DOM instead of Alert -->
+                    <div id="formSuccessMsg" class="hidden mt-4 p-4 bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-xs sm:text-sm rounded-xl flex items-center space-x-2">
+                        <i data-lucide="check-circle" class="w-5 h-5 flex-shrink-0"></i>
+                        <span>Terima kasih! Pesan Anda telah berhasil disimulasikan terkirim.</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="border-t border-slate-800/80 dark:border-slate-800/80 light:border-slate-200 py-12 px-4 relative z-10 bg-navy-950 dark:bg-navy-950 light:bg-white transition-colors duration-300">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+            
+            <div class="flex items-center space-x-2">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-blue-600 to-cyan-400 flex items-center justify-center font-bold text-white shadow-lg">
+                    T
+                </div>
+                <span class="font-mono font-bold text-sm text-slate-300 dark:text-slate-300 light:text-slate-700">tora.RPL</span>
+            </div>
+
+            <p class="text-xs text-slate-400 dark:text-slate-400 light:text-slate-500 text-center sm:text-left">
+                &copy; 2026 Tora raffi helmy.a. All rights reserved. Dibuat dengan dedikasi penuh.
+            </p>
+
+            <!-- Social Links -->
+            <div class="flex items-center space-x-4">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg bg-slate-800/40 dark:bg-slate-800/40 light:bg-slate-100 text-slate-400 dark:text-slate-400 light:text-slate-600 hover:text-blue-400 transition-colors" aria-label="GitHub">
+                    <i data-lucide="github" class="w-4 h-4"></i>
+                </a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg bg-slate-800/40 dark:bg-slate-800/40 light:bg-slate-100 text-slate-400 dark:text-slate-400 light:text-slate-600 hover:text-blue-400 transition-colors" aria-label="LinkedIn">
+                    <i data-lucide="linkedin" class="w-4 h-4"></i>
+                </a>
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg bg-slate-800/40 dark:bg-slate-800/40 light:bg-slate-100 text-slate-400 dark:text-slate-400 light:text-slate-600 hover:text-blue-400 transition-colors" aria-label="Instagram">
+                    <i data-lucide="instagram" class="w-4 h-4"></i>
+                </a>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Project Details Modal Backdrop (hidden by default) -->
+    <div id="projectModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-[100] hidden items-center justify-center p-4">
+        <div class="glass-card max-w-lg w-full rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xl relative animate-[scaleIn_0.2s_ease-out]">
+            <button onclick="closeProjectModal()" class="absolute top-4 right-4 p-2 rounded-lg hover:bg-slate-800/50 light:hover:bg-slate-200 text-slate-400 hover:text-slate-200 transition">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <div class="space-y-2">
+                <span id="modalCategory" class="text-xs text-blue-400 font-mono font-semibold uppercase tracking-wider">Kategori</span>
+                <h3 id="modalTitle" class="text-2xl font-bold text-slate-100 dark:text-slate-100 light:text-slate-800">Nama Projek</h3>
+            </div>
+            
+            <p id="modalDesc" class="text-slate-300 dark:text-slate-300 light:text-slate-600 text-sm leading-relaxed">Deskripsi lengkap dari demo produk...</p>
+            
+            <div class="space-y-2">
+                <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Teknologi Terintegrasi</h4>
+                <div id="modalTech" class="flex flex-wrap gap-2"></div>
+            </div>
+
+            <!-- Modal Action Buttons -->
+            <div class="flex items-center space-x-3 pt-4 border-t border-slate-800 dark:border-slate-800 light:border-slate-200">
+                <button onclick="simulateDemo()" class="flex-1 py-3 text-sm font-semibold text-center text-white bg-blue-600 hover:bg-blue-500 rounded-xl transition">
+                    Jalankan Simulasi Live
+                </button>
+                <button onclick="closeProjectModal()" class="px-5 py-3 text-sm font-semibold text-slate-300 dark:text-slate-300 light:text-slate-700 bg-slate-800/50 dark:bg-slate-800/50 light:bg-slate-200 hover:bg-slate-800 dark:hover:bg-slate-800 light:hover:bg-slate-200 rounded-xl transition">
+                    Kembali
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Init Lucide Icons
+        lucide.createIcons();
+
+        // 1. LIGHT & DARK MODE TOGGLE
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const sunIcon = document.getElementById('sunIcon');
+        const moonIcon = document.getElementById('moonIcon');
+        const htmlElement = document.documentElement;
+
+        // Load theme based on system preference or prior usage
+        if (localStorage.getItem('theme') === 'light' || 
+            (!localStorage.getItem('theme') && !window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.remove('dark');
+            htmlElement.classList.add('light');
+            sunIcon.classList.remove('hidden');
+            moonIcon.classList.add('hidden');
+        } else {
+            htmlElement.classList.add('dark');
+            htmlElement.classList.remove('light');
+            sunIcon.classList.add('hidden');
+            moonIcon.classList.remove('hidden');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                htmlElement.classList.add('light');
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+                localStorage.setItem('theme', 'light');
+            } else {
+                htmlElement.classList.remove('light');
+                htmlElement.classList.add('dark');
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // 2. MOBILE MENU DROPDOWN INTERACTION
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Auto-close menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // 3. SCROLL REVEAL ANIMATIONS (Intersection Observer)
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealOnScroll = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); // Reveal once
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        revealElements.forEach(el => {
+            revealOnScroll.observe(el);
+        });
+
+        // 4. CONTACT FORM HANDLING
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            // Simple DOM confirmation mechanism (Avoiding standard alert)
+            const successBox = document.getElementById('formSuccessMsg');
+            successBox.classList.remove('hidden');
+            
+            // Log for presentation
+            console.log("Form Terkirim (Simulasi):", { name, email, message });
+            
+            // Clear input fields safely
+            document.getElementById('contactForm').reset();
+            
+            // Hide notification after 8 seconds
+            setTimeout(() => {
+                successBox.classList.add('hidden');
+            }, 8000);
+        }
+
+        // 5. INTERACTIVE PORTFOLIO MODAL LOGIC
+        const projectData = {
+            1: {
+                title: "E-Perpustakaan Digital SMK",
+                category: "Web Application",
+                desc: "Solusi administrasi digital sekolah untuk meningkatkan minat baca siswa. Menghadirkan katalog modern, sistem notifikasi keterlambatan pengembalian otomatis berbasis web session, serta dashboard manajemen stok buku yang didukung basis data relasional MySQL.",
+                tech: ["PHP Native", "Tailwind CSS", "MySQL", "JavaScript", "FPDF Library"]
+            },
+            2: {
+                title: "Sistem Presensi Siswa Online",
+                category: "Web Application",
+                desc: "Aplikasi asinkronus responsif yang membantu pemantauan kehadiran siswa secara instan menggunakan kamera device untuk memindai barcode ID Card, mendeteksi lokasi radius sekolah via browser Geolocation API, serta menyimpan log offline menggunakan Web LocalStorage.",
+                tech: ["Vanilla JavaScript", "Tailwind CSS", "Local Storage", "HTML5 Geolocation", "HTML5 QR Code Reader"]
+            }
+        };
+
+        const modal = document.getElementById('projectModal');
+        const modalCategory = document.getElementById('modalCategory');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDesc = document.getElementById('modalDesc');
+        const modalTech = document.getElementById('modalTech');
+
+        function openProjectDetails(id) {
+            const proj = projectData[id];
+            if (!proj) return;
+
+            modalCategory.innerText = proj.category;
+            modalTitle.innerText = proj.title;
+            modalDesc.innerText = proj.desc;
+            
+            // Clean older tags
+            modalTech.innerHTML = "";
+            proj.tech.forEach(t => {
+                const tag = document.createElement('span');
+                tag.className = "text-[10px] font-bold tracking-wider bg-slate-800/80 dark:bg-slate-800/80 light:bg-slate-200 text-slate-300 dark:text-slate-300 light:text-slate-700 px-2.5 py-1 rounded";
+                tag.innerText = t;
+                modalTech.appendChild(tag);
+            });
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = "hidden"; // Prevent scrolling behind
+        }
+
+        function closeProjectModal() {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = "auto";
+        }
+
+        function simulateDemo() {
+            closeProjectModal();
+            // Show custom elegant alert toast
+            const toast = document.createElement('div');
+            toast.className = "fixed bottom-5 right-5 z-[200] bg-blue-600 text-white px-6 py-4 rounded-2xl shadow-2xl flex items-center space-x-3 max-w-sm transition-transform duration-300 transform translate-y-20";
+            toast.innerHTML = `
+                <i data-lucide="info" class="w-5 h-5 flex-shrink-0"></i>
+                <div class="text-xs sm:text-sm font-semibold">Simulasi demo dimulai di server internal RPL!</div>
+            `;
+            document.body.appendChild(toast);
+            lucide.createIcons();
+            
+            // Smooth animate in
+            setTimeout(() => {
+                toast.classList.remove('translate-y-20');
+                toast.classList.add('translate-y-0');
+            }, 100);
+
+            // Animate out
+            setTimeout(() => {
+                toast.classList.add('translate-y-20');
+                setTimeout(() => toast.remove(), 300);
+            }, 4000);
+        }
+
+        // Close modal when clicking outside contents
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeProjectModal();
+            }
+        });
+    </script>
+</body>
+</html>
